@@ -1,0 +1,122 @@
+*,::after,::before{
+    box-sizing: border-box;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+    font: 100%;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(84, 255, 212);
+    font-family: 'Klee One', cursive;
+}
+
+
+#parent{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    position: relative;
+
+}
+#parent h1{
+    padding: 0.5rem;
+    font-weight: bolder;
+    border-bottom: 5px double rgb(17, 63, 91);
+    color: rgb(17, 60, 87);
+ 
+}
+#TicTacToe_grid{
+    width: 40%;
+    height: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    
+}
+h2{
+    display: block;
+}
+
+.btn{
+    cursor:grab;
+    background-color: rgb(0, 255, 238);
+    border: 4px solid rgb(175, 255, 235);
+    font-size: 6rem;
+    color: rgb(20, 70, 102);
+}
+.btn:active{
+    cursor:grabbing;
+}
+
+
+ .btn{
+    border-left: none;
+    border-top: none;
+}
+.btn:nth-child(3n){
+   border-right: none;
+}
+.btn:nth-child(n+7):nth-child(-n+9){
+   border-bottom: none;
+}
+
+@media (max-width:700px){
+    #parent{
+        height: 94vh;
+    }
+    #TicTacToe_grid{
+    width: 100%;
+    height:50%;
+    }
+    /* .btn{
+        padding: 4rem 1.5rem;
+    } */
+}
+
+.winning_wrapper{
+    font-family: 'Bungee Shade', cursive;
+    pointer-events: none;
+    position: absolute;
+    z-index: 99;
+    inset: 0 0 0 0;
+    background-color: rgba(192, 254, 255, 0.864);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    
+}
+.winning_wrapper div{
+    text-align: center;
+    position: relative;
+    inset: 50% 50% 50% 50%;
+    transform: translate(-50%,-50%);
+}
+.winning_wrapper div h1{
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+.active{
+    display: block;
+    pointer-events: all;
+}
+.reset{
+    font-size: 1.4rem;
+    padding: 1em 1.5em;
+    border: 2px solid rgba(0, 0, 0, 1);
+    border-radius: 0.5rem;
+    margin: 5px;
+    font-family: 'Klee One', cursive;
+    font-weight:bolder;
+    box-shadow: -4px 4px 0 rgba(0, 0, 0, 1);
+    transition: all linear 0.15s;
+}
+.reset:active{
+box-shadow: none;
+margin: 9px 9px 1px 1px;
+}
